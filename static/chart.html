@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#loadtestdata").click(function () {
+                $.getJSON("http://localhost:3000/testdata", function (result) {
+                    newdata = [];
+                    $.each(result, function(i){
+                        newdata.push(result[i].y);
+                    })
+                    var chart = $('#container').highcharts();
+                    chart.series[0].setData(newdata);
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Test-Chart</h1>
+    <div id="button">
+        <button id="loadtestdata">Load Test Data</button>
+    </div>
+    <div id="container" style="width:100%; height:400px;"></div>
+    <script>$(function () {
+            var myChart = Highcharts.chart('container', {
+                title: {
+                    text: 'Example Chart'
+                },
+                xAxis: {
+                    title: {
+                        text: 'Index'
+                    },
+                    min: 1,
+                    max: 10,
+                    tickInterval: 1
+                },
+                yAxis: {
+                    title: {
+                        text: 'Amount'
+                    },
+                    min: 0,
+                    max: 100
+                },
+                series: [{name: 'Values', data: [null, null, null, null, null, null, null, null, null, null]}]
+            });
+        });
+    </script>
+</body>
+
+</html>
