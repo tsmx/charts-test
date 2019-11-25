@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let chartContext = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(chartContext, {
+                // The type of chart we want to create
+                type: 'line',
+                // The data for our dataset
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [0, 10, 5, 2, 20, 30, 45]
+                    }]
+                },
+                // Configuration options go here
+                options: {}
+            });
+
+            $("#loadtestdata").click(function () {
+                chart.data.labels.push('August');
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(20);
+                });
+                chart.update();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Test-Chart</h1>
+    <div id="button">
+        <button id="loadtestdata">Load Test Data</button>
+    </div>
+    <div class="container" style="width:60%; height:400px;">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>$(function () {
+
+        });
+    </script>
+</body>
+
+</html>

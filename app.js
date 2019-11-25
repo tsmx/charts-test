@@ -9,10 +9,14 @@ app.get('/testdata', function (req, res) {
     res.json(testdata);
 });
 
-app.get('/testchart', function(req, res) {
-    res.sendFile(__dirname + '/static/chart.html');
-})
+app.get('/highchart', function(req, res) {
+    res.sendFile(__dirname + '/static/highchart.html');
+});
+
+app.get('/chartjs', function(req, res) {
+    res.sendFile(__dirname + '/static/chartjs.html');
+});
 
 app.listen(3000, function () {
-    console.log('HighchartsTest started listening on port 3000...');
+    console.log('ChartsTest started listening on port 3000...');
 });
