@@ -1,13 +1,19 @@
 {
   "name": "chartstest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example for showing a HighChart or ChartsJS chart on a web page. Populated with test data using Express backend",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "tsmx <dev@tsmx.net>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsmx/charts-test.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+      "HighCharts",
+      "ChartJS",
+      "Express"
+  ],
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
   }
